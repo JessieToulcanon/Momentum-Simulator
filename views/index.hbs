@@ -1,0 +1,17 @@
+<h1>{{title}}</h1>
+<p>Welcome to {{title}}</p>
+<h2>Users <a href="/users/new" class="btn btn-success">New</a></h2>
+<ul class="list-group">
+{{#each users}}
+{{# if hidden}}
+{{ else }}
+<li class="list-group-item">{{username}} -- <a class="btn btn-danger btn-sm" href="/users/delete/{{_id}}">Delete</a> -- <a class="btn btn-warning btn-sm" href="/users/archive/{{_id}}">Archiver</a></li>
+{{/ if}}
+{{/each}}
+</ul>
+<h2>Projects <button class="btn btn-success">New</button></h2>
+<ul class="list-group">
+{{#each projects}}
+<li class="list-group-item">{{title}} -- <button class="btn btn-danger btn-sm">Delete</button></li>
+{{/each}}
+</ul>
