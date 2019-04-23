@@ -6,9 +6,7 @@ const userSchema = new Schema(
     email: {
       type: String,
       match: /^.+@.+\..+$/
-    },
-    adress1: String,
-    adress2: String
+    }
   },
   {
     timestamps: {

@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 const User = require("../models/User");
 const Project = require("../models/Project");
-const Calendar = require("../models/Calendar");
+const Journey = require("../models/Journey");
 const bcrypt = require("bcrypt");
-const _ = require("lodash")
+const _ = require("lodash");
 const bcryptSalt = 10;
 
 let isAuthenticated = (req, res, next) => {
@@ -81,10 +81,10 @@ router.post("/users/new", (req, res, next) => {
 
 router.get("/dashboard", isAuthenticated, isAdmin, (req, res, next) => {
   Calendar.find()
-    .populate('user')
-    .populate('project')
+    .populate("user")
+    .populate("project")
     .then(cal => {
-      cal = _.groupBy(cal, o => o.user.username)
+      cal = _.groupBy(cal, o => o.user.username);
       res.render("dashboard", { projects });
     });
 });
